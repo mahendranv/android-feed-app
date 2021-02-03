@@ -1,6 +1,7 @@
 package com.ex2.jsonfeed.model
 
 
+import com.ex2.core.model.FeedItem
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -25,3 +26,16 @@ data class FeedItemSchema(
     @Json(name = "url")
     val url: String
 )
+
+fun FeedItemSchema.toDomainModel(): FeedItem {
+    return FeedItem(
+        contentHtml = contentHtml,
+        dateModified = dateModified,
+        datePublished = datePublished,
+        id = id,
+        image = image,
+        summary = summary,
+        title = title,
+        url = url
+    )
+}

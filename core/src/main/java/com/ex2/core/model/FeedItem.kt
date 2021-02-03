@@ -4,13 +4,13 @@ data class FeedItem(
 
     val contentHtml: String,
 
-    val dateModified: String,
+    val dateModified: String?,
 
     val datePublished: String,
 
     val id: String,
 
-    val image: String,
+    val image: String?,
 
     val summary: String,
 

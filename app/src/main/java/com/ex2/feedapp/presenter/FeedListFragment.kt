@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.ex2.feedapp.viewmodel.FeedViewModel
 import com.ex2.feedapp.viewmodel.demo.DemoFeedViewModel
 import com.ex2.feedapp.viewmodel.demo.DemoFeedViewModel_Factory
@@ -47,6 +48,11 @@ class FeedListFragment : Fragment() {
                 }
 
                 is FeedViewModel.Events.Success -> {
+                    requireView().findViewById<RecyclerView>(R.id.feedRecyclerView)
+                        .adapter = FeedListAdapter().apply {
+                            setItems(it.items)
+                    }
+
 
                 }
 
